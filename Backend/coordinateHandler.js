@@ -65,7 +65,9 @@ export function updateCoordinatesJson(input, coordinates) {
     console.log('Current data before update:', currentData);
 
     // Add or update the data for the input
-    currentData[input.toUpperCase()] = coordinates;
+    currentData[input] = coordinates; // Use the unique input key directly
+
+    console.log('Data being added:', input, coordinates); // Debugging line
 
     try {
         fs.writeFileSync(filePath, JSON.stringify(currentData, null, 2));
@@ -74,4 +76,25 @@ export function updateCoordinatesJson(input, coordinates) {
         console.error('Error writing to pixelCoordinates.json:', error.message);
         throw error;
     }
+}
+
+export function getCoordinatesFromJson(inputKey) {
+    const filePath = path.resolve(__dirname, 'pixelCoordinates.json');
+
+    if (!fs.existsSync(filePath)) {
+        throw new Error('pixelCoordinates.json does not exist.');
+    }
+
+    const fileContent = fs.readFileSync(filePath, 'utf8');
+    const data = JSON.parse(fileContent);
+
+    console.log('All keys in JSON:', Object.keys(data)); // Debugging line
+    console.log('Looking for key:', inputKey); // Debugging line
+
+    if (!data[inputKey]) {
+        console.log('Key not found:', inputKey); // Debugging line
+        throw new Error(`No data found for key: ${inputKey}`);
+    }
+
+    return data[inputKey];
 }
