@@ -1,24 +1,28 @@
 import express from 'express';
 import cors from 'cors';
 import { getCoordinatesForString, updateCoordinatesJson, getCoordinatesFromJson } from './coordinateHandler.js';
-import pixelData from './pixelData.js'; // Import from external file
+import pixelData from './pixelData.js';
+
 const app = express();
 app.use(express.json());
 app.use(cors());
+
 // Function to render pixelated text
 function renderPixelatedText(inputString) {
     const inputCharacters = inputString.toUpperCase().split("");
     const renderedRows = Array(6).fill("");
 
     inputCharacters.forEach((char) => {
-        const charPixels = pixelData[char] || Array(6).fill("          "); // Default to empty space
+        const charPixels = pixelData[char] || Array(6).fill("          "); // Default to blank
         for (let i = 0; i < 6; i++) {
-            renderedRows[i] += charPixels[i] + "  "; // Add space between characters
+            renderedRows[i] += charPixels[i] + "  "; // Append each row of the character
         }
     });
 
-    return renderedRows.join("\n");
+    return renderedRows; // Return as an array
 }
+
+// GET: Retrieve coordinates from JSON
 app.get('/retrieve-coordinates', (req, res) => {
     const { input } = req.query;
 
@@ -28,13 +32,16 @@ app.get('/retrieve-coordinates', (req, res) => {
 
     try {
         const coordinates = getCoordinatesFromJson(input);
-        res.json({ input, coordinates });
+        res.json({
+            message: `Coordinates for '${input}' retrieved successfully.`,
+            coordinates,
+        });
     } catch (error) {
-        console.error('Error retrieving coordinates:', error.message);
-        res.status(500).json({ error: error.message });
+        res.status(404).json({ error: error.message });
     }
 });
 
+// POST: Render pixelated text
 app.post('/render-pixelated-text', (req, res) => {
     const { input } = req.body;
 
@@ -42,20 +49,18 @@ app.post('/render-pixelated-text', (req, res) => {
         return res.status(400).json({ error: 'Invalid input' });
     }
 
-    const inputCharacters = input.toUpperCase().split("");
-    const renderedRows = Array(6).fill(""); // Create an array of rows
-
-    inputCharacters.forEach((char) => {
-        const charPixels = pixelData[char] || Array(6).fill("          "); // Default to blank
-        for (let i = 0; i < 6; i++) {
-            renderedRows[i] += charPixels[i] + "  "; // Append each row of the character
-        }
-    });
-
-    res.json({ renderedText: renderedRows }); // Send as an array
+    try {
+        const renderedText = renderPixelatedText(input);
+        res.json({
+            message: `Pixelated text for '${input}' rendered successfully.`,
+            renderedText,
+        });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 });
 
-
+// POST: Generate secret message and save to JSON
 app.post('/generate-secret-message', (req, res) => {
     const { input } = req.body;
 
@@ -64,7 +69,10 @@ app.post('/generate-secret-message', (req, res) => {
     }
 
     try {
+        // Generate coordinates for the input string
         const coordinates = getCoordinatesForString(input);
+
+        // Update the pixelCoordinates.json file
         updateCoordinatesJson(input, coordinates);
 
         res.json({
@@ -75,7 +83,6 @@ app.post('/generate-secret-message', (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
-
 
 const PORT = 3000;
 app.listen(PORT, () => {

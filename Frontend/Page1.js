@@ -11,7 +11,7 @@ export default function renderPage1(container) {
     heading.textContent = 'Enter the secret link:';
     heading.style.color = 'white';
     heading.style.opacity = '0'; // Start invisible for animation
-    heading.style.transform = 'translateY(-50px)'; // Start above position for animation
+    heading.style.transform = 'translateY(-50px)';
     heading.style.position = 'relative';
 
     // Create input field
@@ -28,10 +28,10 @@ export default function renderPage1(container) {
     inputField.style.backgroundColor = 'transparent';
     inputField.style.color = 'white';
     inputField.style.caretColor = 'white';
-    inputField.style.opacity = '0'; // Start invisible for animation
-    inputField.style.transform = 'translateY(-50px)'; // Start above position for animation
+    inputField.style.opacity = '0';
+    inputField.style.transform = 'translateY(-50px)';
     inputField.style.position = 'relative';
-    inputField.style.zIndex = '10'; // Raise above canvas
+    inputField.style.zIndex = '10';
     inputField.style.pointerEvents = 'auto';
 
     // Create button
@@ -45,17 +45,17 @@ export default function renderPage1(container) {
     button.style.backgroundColor = 'white';
     button.style.color = 'black';
     button.style.cursor = 'pointer';
-    button.style.opacity = '0'; // Start invisible for animation
-    button.style.transform = 'translateY(-50px)'; // Start above position for animation
+    button.style.opacity = '0';
+    button.style.transform = 'translateY(-50px)';
     button.style.position = 'relative';
-    button.style.zIndex = '10'; // Raise above canvas
+    button.style.zIndex = '10';
     button.style.pointerEvents = 'auto';
 
     // Create terminal-like output container
     const terminalBox = document.createElement('div');
-    terminalBox.style.backgroundColor = '#000'; // Black background for terminal effect
-    terminalBox.style.color = '#0f0'; // Green text for terminal effect
-    terminalBox.style.fontFamily = 'Courier, monospace'; // Monospaced font for alignment
+    terminalBox.style.backgroundColor = '#000';
+    terminalBox.style.color = '#0f0';
+    terminalBox.style.fontFamily = 'Courier, monospace';
     terminalBox.style.padding = '20px';
     terminalBox.style.marginTop = '20px';
     terminalBox.style.borderRadius = '8px';
@@ -63,7 +63,7 @@ export default function renderPage1(container) {
     terminalBox.style.minHeight = '200px';
     terminalBox.style.width = '100%';
     terminalBox.style.overflow = 'auto';
-    terminalBox.style.whiteSpace = 'pre'; // Preserve spacing and newlines
+    terminalBox.style.whiteSpace = 'pre';
 
     button.addEventListener('click', async () => {
         const inputText = inputField.value.trim();
@@ -74,69 +74,74 @@ export default function renderPage1(container) {
         }
 
         try {
-            const response = await fetch('http://localhost:3000/render-pixelated-text', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ input: inputText }),
+            // Try fetching from the database
+            const response = await fetch(`http://localhost:3000/retrieve-coordinates?input=${encodeURIComponent(inputText)}`, {
+                method: 'GET',
             });
-
-            if (!response.ok) {
-                throw new Error(`Server error: ${response.statusText}`);
-            }
-
-            const { renderedText } = await response.json();
-
-            console.log(renderedText);
 
             // Clear the terminal box
             terminalBox.textContent = '';
 
-            // Sequentially render lines with a fade-in effect
-            renderedText.forEach((line, index) => {
-                const lineElement = document.createElement('div');
-                lineElement.textContent = line; // Set the text directly
-                lineElement.style.opacity = '0'; // Start invisible
-                terminalBox.appendChild(lineElement);
+            if (response.ok) {
+                const { coordinates } = await response.json();
+                console.log('Coordinates retrieved:', coordinates);
 
-                // Fade in each line sequentially
-                gsap.to(lineElement, {
+                // Convert coordinates to rendered text
+                const rows = Array(6).fill('');
+                coordinates.forEach(({ x, y, character }) => {
+                    while (rows[y].length < x) {
+                        rows[y] += ' '; // Fill spaces
+                    }
+                    rows[y] += character;
+                });
+
+                // Sequentially render lines with a fade-in effect
+                rows.forEach((line, index) => {
+                    const lineElement = document.createElement('div');
+                    lineElement.textContent = line;
+                    lineElement.style.opacity = '0'; // Start invisible
+                    terminalBox.appendChild(lineElement);
+
+                    gsap.to(lineElement, {
+                        opacity: 1,
+                        duration: 0.5,
+                        delay: index * 0.3, // Stagger animation
+                        ease: 'power3.out',
+                    });
+                });
+            } else {
+                console.log(`Key '${inputText}' not found in the database.`);
+                const notFoundMessage = document.createElement('div');
+                notFoundMessage.textContent = 'NOTHING FOUND!';
+                notFoundMessage.style.opacity = '0'; // Start invisible
+                terminalBox.appendChild(notFoundMessage);
+
+                // Fade in "NOTHING FOUND!"
+                gsap.to(notFoundMessage, {
                     opacity: 1,
                     duration: 0.5,
-                    delay: index * 0.3, // Stagger animation
                     ease: 'power3.out',
                 });
-            });
+            }
         } catch (error) {
-            console.error('Error fetching pixelated text:', error);
+            console.error('Error fetching coordinates:', error);
+
+            // Handle unexpected errors
+            const errorMessage = document.createElement('div');
+            errorMessage.textContent = 'An error occurred. Please try again later.';
+            errorMessage.style.color = 'red';
+            terminalBox.appendChild(errorMessage);
         }
     });
 
-    // Append elements to the container
+
     container.appendChild(heading);
     container.appendChild(inputField);
     container.appendChild(button);
     container.appendChild(terminalBox);
 
-    // Animate elements using GSAP
     gsap.timeline()
-        .to(heading, {
-            opacity: 1,
-            y: 0, // Move to original position
-            duration: 0.8,
-            ease: 'power3.out',
-        })
-        .to(inputField, {
-            opacity: 1,
-            y: 0, // Move to original position
-            duration: 0.8,
-            ease: 'power3.out',
-        }, '<') // Sync with heading animation
-        .to(button, {
-            opacity: 1,
-            y: 0, // Move to original position
-            duration: 0.8,
-            ease: 'power3.out',
-        }, '<'); // Sync with input field animation
+        .to(heading, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
+        .to(inputField, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '<')
+        .to(button, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '<');
 }
