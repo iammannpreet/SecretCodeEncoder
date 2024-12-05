@@ -30,6 +30,7 @@ app.get('/retrieve-coordinates', (req, res) => {
         const coordinates = getCoordinatesFromJson(input);
         res.json({ input, coordinates });
     } catch (error) {
+        console.error('Error retrieving coordinates:', error.message);
         res.status(500).json({ error: error.message });
     }
 });
