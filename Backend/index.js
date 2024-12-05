@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import { getCoordinatesForString, updateCoordinatesJson, getCoordinatesFromJson } from './coordinateHandler.js';
-import { v4 as uuidv4 } from 'uuid';
 import pixelData from './pixelData.js'; // Import from external file
 const app = express();
 app.use(express.json());
@@ -55,6 +54,7 @@ app.post('/render-pixelated-text', (req, res) => {
     res.json({ renderedText: renderedRows }); // Send as an array
 });
 
+
 app.post('/generate-secret-message', (req, res) => {
     const { input } = req.body;
 
@@ -63,23 +63,19 @@ app.post('/generate-secret-message', (req, res) => {
     }
 
     try {
-        // Generate coordinates for the input string
         const coordinates = getCoordinatesForString(input);
-
-        // Generate a secret key (UUID)
-        const secretKey = uuidv4();
-
-        // Update the pixelCoordinates.json file with the secret key
-        updateCoordinatesJson(secretKey, coordinates);
+        updateCoordinatesJson(input, coordinates);
 
         res.json({
-            message: `Coordinates saved successfully with secret key.`,
-            secretKey, // Return the secret key to the client
+            message: `Coordinates for '${input}' saved successfully.`,
+            coordinates,
         });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
+
+
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Backend running at http://localhost:${PORT}`);

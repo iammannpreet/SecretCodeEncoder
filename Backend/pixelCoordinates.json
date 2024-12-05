@@ -10418,5 +10418,1444 @@
       "y": 5,
       "character": "░"
     }
+  ],
+  "ABC": [
+    {
+      "x": 2,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 5,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 6,
+      "y": 0,
+      "character": "░"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "character": "░"
+    },
+    {
+      "x": 5,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 6,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 7,
+      "y": 1,
+      "character": "░"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "character": "░"
+    },
+    {
+      "x": 6,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 7,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 8,
+      "y": 2,
+      "character": "░"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 5,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 6,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 7,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 8,
+      "y": 3,
+      "character": "░"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "character": "░"
+    },
+    {
+      "x": 6,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 7,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 8,
+      "y": 4,
+      "character": "░"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "character": "░"
+    },
+    {
+      "x": 6,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 7,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 8,
+      "y": 5,
+      "character": "░"
+    },
+    {
+      "x": 12,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 13,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 14,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 15,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 16,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 17,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 18,
+      "y": 0,
+      "character": "░"
+    },
+    {
+      "x": 12,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 13,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 14,
+      "y": 1,
+      "character": "░"
+    },
+    {
+      "x": 17,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 18,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 19,
+      "y": 1,
+      "character": "░"
+    },
+    {
+      "x": 12,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 13,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 14,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 15,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 16,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 17,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 18,
+      "y": 2,
+      "character": "░"
+    },
+    {
+      "x": 12,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 13,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 14,
+      "y": 3,
+      "character": "░"
+    },
+    {
+      "x": 17,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 18,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 19,
+      "y": 3,
+      "character": "░"
+    },
+    {
+      "x": 12,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 13,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 14,
+      "y": 4,
+      "character": "░"
+    },
+    {
+      "x": 17,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 18,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 19,
+      "y": 4,
+      "character": "░"
+    },
+    {
+      "x": 12,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 13,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 14,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 15,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 16,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 17,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 18,
+      "y": 5,
+      "character": "░"
+    },
+    {
+      "x": 25,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 26,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 27,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 28,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 29,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 30,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 31,
+      "y": 0,
+      "character": "░"
+    },
+    {
+      "x": 24,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 25,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 26,
+      "y": 1,
+      "character": "░"
+    },
+    {
+      "x": 24,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 25,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 26,
+      "y": 2,
+      "character": "░"
+    },
+    {
+      "x": 24,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 25,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 26,
+      "y": 3,
+      "character": "░"
+    },
+    {
+      "x": 24,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 25,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 26,
+      "y": 4,
+      "character": "░"
+    },
+    {
+      "x": 25,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 26,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 27,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 28,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 29,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 30,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 31,
+      "y": 5,
+      "character": "░"
+    }
+  ],
+  "DADDY": [
+    {
+      "x": 0,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 5,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 6,
+      "y": 0,
+      "character": "░"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "character": "░"
+    },
+    {
+      "x": 5,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 6,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 7,
+      "y": 1,
+      "character": "░"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "character": "░"
+    },
+    {
+      "x": 6,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 7,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 8,
+      "y": 2,
+      "character": "░"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "character": "░"
+    },
+    {
+      "x": 6,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 7,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 8,
+      "y": 3,
+      "character": "░"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "character": "░"
+    },
+    {
+      "x": 5,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 6,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 7,
+      "y": 4,
+      "character": "░"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 5,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 6,
+      "y": 5,
+      "character": "░"
+    },
+    {
+      "x": 14,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 15,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 16,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 17,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 18,
+      "y": 0,
+      "character": "░"
+    },
+    {
+      "x": 13,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 14,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 15,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 16,
+      "y": 1,
+      "character": "░"
+    },
+    {
+      "x": 17,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 18,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 19,
+      "y": 1,
+      "character": "░"
+    },
+    {
+      "x": 12,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 13,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 14,
+      "y": 2,
+      "character": "░"
+    },
+    {
+      "x": 18,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 19,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 20,
+      "y": 2,
+      "character": "░"
+    },
+    {
+      "x": 12,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 13,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 14,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 15,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 16,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 17,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 18,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 19,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 20,
+      "y": 3,
+      "character": "░"
+    },
+    {
+      "x": 12,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 13,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 14,
+      "y": 4,
+      "character": "░"
+    },
+    {
+      "x": 18,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 19,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 20,
+      "y": 4,
+      "character": "░"
+    },
+    {
+      "x": 12,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 13,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 14,
+      "y": 5,
+      "character": "░"
+    },
+    {
+      "x": 18,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 19,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 20,
+      "y": 5,
+      "character": "░"
+    },
+    {
+      "x": 24,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 25,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 26,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 27,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 28,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 29,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 30,
+      "y": 0,
+      "character": "░"
+    },
+    {
+      "x": 24,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 25,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 26,
+      "y": 1,
+      "character": "░"
+    },
+    {
+      "x": 29,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 30,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 31,
+      "y": 1,
+      "character": "░"
+    },
+    {
+      "x": 24,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 25,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 26,
+      "y": 2,
+      "character": "░"
+    },
+    {
+      "x": 30,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 31,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 32,
+      "y": 2,
+      "character": "░"
+    },
+    {
+      "x": 24,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 25,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 26,
+      "y": 3,
+      "character": "░"
+    },
+    {
+      "x": 30,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 31,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 32,
+      "y": 3,
+      "character": "░"
+    },
+    {
+      "x": 24,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 25,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 26,
+      "y": 4,
+      "character": "░"
+    },
+    {
+      "x": 29,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 30,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 31,
+      "y": 4,
+      "character": "░"
+    },
+    {
+      "x": 24,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 25,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 26,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 27,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 28,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 29,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 30,
+      "y": 5,
+      "character": "░"
+    },
+    {
+      "x": 36,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 37,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 38,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 39,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 40,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 41,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 42,
+      "y": 0,
+      "character": "░"
+    },
+    {
+      "x": 36,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 37,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 38,
+      "y": 1,
+      "character": "░"
+    },
+    {
+      "x": 41,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 42,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 43,
+      "y": 1,
+      "character": "░"
+    },
+    {
+      "x": 36,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 37,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 38,
+      "y": 2,
+      "character": "░"
+    },
+    {
+      "x": 42,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 43,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 44,
+      "y": 2,
+      "character": "░"
+    },
+    {
+      "x": 36,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 37,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 38,
+      "y": 3,
+      "character": "░"
+    },
+    {
+      "x": 42,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 43,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 44,
+      "y": 3,
+      "character": "░"
+    },
+    {
+      "x": 36,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 37,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 38,
+      "y": 4,
+      "character": "░"
+    },
+    {
+      "x": 41,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 42,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 43,
+      "y": 4,
+      "character": "░"
+    },
+    {
+      "x": 36,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 37,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 38,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 39,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 40,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 41,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 42,
+      "y": 5,
+      "character": "░"
+    },
+    {
+      "x": 48,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 49,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 50,
+      "y": 0,
+      "character": "░"
+    },
+    {
+      "x": 54,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 55,
+      "y": 0,
+      "character": "█"
+    },
+    {
+      "x": 56,
+      "y": 0,
+      "character": "░"
+    },
+    {
+      "x": 49,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 50,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 51,
+      "y": 1,
+      "character": "░"
+    },
+    {
+      "x": 53,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 54,
+      "y": 1,
+      "character": "█"
+    },
+    {
+      "x": 55,
+      "y": 1,
+      "character": "░"
+    },
+    {
+      "x": 50,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 51,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 52,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 53,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 54,
+      "y": 2,
+      "character": "█"
+    },
+    {
+      "x": 55,
+      "y": 2,
+      "character": "░"
+    },
+    {
+      "x": 51,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 52,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 53,
+      "y": 3,
+      "character": "█"
+    },
+    {
+      "x": 54,
+      "y": 3,
+      "character": "░"
+    },
+    {
+      "x": 51,
+      "y": 4,
+      "character": "░"
+    },
+    {
+      "x": 52,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 53,
+      "y": 4,
+      "character": "█"
+    },
+    {
+      "x": 54,
+      "y": 4,
+      "character": "░"
+    },
+    {
+      "x": 51,
+      "y": 5,
+      "character": "░"
+    },
+    {
+      "x": 52,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 53,
+      "y": 5,
+      "character": "█"
+    },
+    {
+      "x": 54,
+      "y": 5,
+      "character": "░"
+    }
   ]
 }
