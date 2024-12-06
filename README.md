@@ -1,6 +1,3 @@
-Here’s a professional and technical **`README.md`** for your **SecretCodeEncoder** project:
-
-```markdown
 # SecretCodeEncoder
 
 **SecretCodeEncoder** is an innovative web application that provides a secure and seamless way to encode secret messages and retrieve them using unique identifiers. This project combines a visually immersive front-end experience with a robust and scalable back-end architecture, making it a cutting-edge solution for secure data encoding and retrieval.
