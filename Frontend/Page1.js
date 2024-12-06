@@ -10,8 +10,8 @@ export default function renderPage1(container) {
     const heading = document.createElement('h1');
     heading.textContent = 'Enter the secret link:';
     heading.style.color = 'white';
+    heading.style.fontFamily = 'Copperplate';
     heading.style.opacity = '0'; // Start invisible for animation
-    heading.style.transform = 'translateY(-50px)';
     heading.style.position = 'relative';
 
     // Create input field
@@ -20,6 +20,7 @@ export default function renderPage1(container) {
     inputField.type = 'text';
     inputField.placeholder = 'Enter your link here...';
     inputField.style.padding = '10px';
+    inputField.style.fontFamily = 'Copperplate';
     inputField.style.fontSize = '16px';
     inputField.style.width = '80%';
     inputField.style.marginTop = '20px';
@@ -29,7 +30,6 @@ export default function renderPage1(container) {
     inputField.style.color = 'white';
     inputField.style.caretColor = 'white';
     inputField.style.opacity = '0';
-    inputField.style.transform = 'translateY(-50px)';
     inputField.style.position = 'relative';
     inputField.style.zIndex = '10';
     inputField.style.pointerEvents = 'auto';
@@ -38,6 +38,7 @@ export default function renderPage1(container) {
     const button = document.createElement('button');
     button.textContent = 'Submit';
     button.style.padding = '10px 20px';
+    button.style.fontFamily = 'Copperplate';
     button.style.fontSize = '16px';
     button.style.marginTop = '20px';
     button.style.border = '1px solid white';
@@ -46,7 +47,6 @@ export default function renderPage1(container) {
     button.style.color = 'black';
     button.style.cursor = 'pointer';
     button.style.opacity = '0';
-    button.style.transform = 'translateY(-50px)';
     button.style.position = 'relative';
     button.style.zIndex = '10';
     button.style.pointerEvents = 'auto';
@@ -55,6 +55,7 @@ export default function renderPage1(container) {
     const terminalBox = document.createElement('div');
     terminalBox.style.backgroundColor = '#000';
     terminalBox.style.color = '#0f0';
+    terminalBox.style.fontFamily = 'Copperplate';
     terminalBox.style.fontFamily = 'Courier, monospace';
     terminalBox.style.padding = '20px';
     terminalBox.style.marginTop = '20px';

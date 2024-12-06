@@ -11,8 +11,8 @@ export default function renderPage2(container) {
     heading.textContent = 'Generate Secret Message:';
     heading.style.color = 'white';
     heading.style.opacity = '0'; // Start invisible for animation
-    heading.style.transform = 'translateY(-50px)';
     heading.style.position = 'relative';
+    heading.style.fontFamily = 'Copperplate';
 
     // Create input field
     const inputField = document.createElement('input');
@@ -22,6 +22,7 @@ export default function renderPage2(container) {
     inputField.style.padding = '10px';
     inputField.style.fontSize = '16px';
     inputField.style.width = '80%';
+    inputField.style.fontFamily = 'Copperplate';
     inputField.style.marginTop = '20px';
     inputField.style.border = '1px solid white';
     inputField.style.borderRadius = '4px';
@@ -29,7 +30,6 @@ export default function renderPage2(container) {
     inputField.style.color = 'white';
     inputField.style.caretColor = 'white';
     inputField.style.opacity = '0';
-    inputField.style.transform = 'translateY(-50px)';
     inputField.style.position = 'relative';
     inputField.style.zIndex = '10';
     inputField.style.pointerEvents = 'auto';
@@ -40,27 +40,31 @@ export default function renderPage2(container) {
     button.style.padding = '10px 20px';
     button.style.fontSize = '16px';
     button.style.marginTop = '20px';
+    button.style.fontFamily = 'Copperplate';
     button.style.border = '1px solid white';
     button.style.borderRadius = '4px';
     button.style.backgroundColor = 'white';
     button.style.color = 'black';
     button.style.cursor = 'pointer';
     button.style.opacity = '0';
-    button.style.transform = 'translateY(-50px)';
     button.style.position = 'relative';
     button.style.zIndex = '10';
     button.style.pointerEvents = 'auto';
 
-    // Create notification container
-    const notificationBox = document.createElement('div');
-    notificationBox.style.backgroundColor = '#222';
-    notificationBox.style.color = 'white';
-    notificationBox.style.fontFamily = 'Arial, sans-serif';
-    notificationBox.style.padding = '20px';
-    notificationBox.style.marginTop = '20px';
-    notificationBox.style.borderRadius = '8px';
-    notificationBox.style.border = '1px solid #555';
-    notificationBox.style.display = 'none'; // Initially hidden
+    // Create terminal-like output container
+    const terminalBox = document.createElement('div');
+    terminalBox.style.backgroundColor = '#000';
+    terminalBox.style.color = '#0f0';
+    terminalBox.style.fontFamily = 'Courier, monospace';
+    terminalBox.style.padding = '20px';
+    terminalBox.style.marginTop = '20px';
+    terminalBox.style.borderRadius = '8px';
+    terminalBox.style.border = '1px solid #333';
+    terminalBox.style.fontFamily = 'Copperplate';
+    terminalBox.style.minHeight = '200px';
+    terminalBox.style.width = '100%';
+    terminalBox.style.overflow = 'auto';
+    terminalBox.style.whiteSpace = 'pre';
 
     button.addEventListener('click', async () => {
         const inputText = inputField.value.trim();
@@ -80,29 +84,57 @@ export default function renderPage2(container) {
                 body: JSON.stringify({ input: inputText }),
             });
 
-            if (response.ok) {
-                const { id } = await response.json(); // Expecting an `id` in the response
-                console.log('Secret message created with ID:', id);
+            // Clear the terminal box
+            terminalBox.textContent = '';
 
-                // Show success message
-                notificationBox.textContent = `Your secret message was created successfully! The ID is: ${id}`;
-                notificationBox.style.display = 'block';
-                gsap.fromTo(notificationBox, { opacity: 0 }, { opacity: 1, duration: 0.8, ease: 'power3.out' });
+            if (response.ok) {
+                const { coordinates } = await response.json();
+                console.log('Coordinates retrieved:', coordinates);
+
+                // Convert coordinates to rendered text
+                const rows = Array(6).fill('');
+                coordinates.forEach(({ x, y, character }) => {
+                    while (rows[y].length < x) {
+                        rows[y] += ' '; // Fill spaces
+                    }
+                    rows[y] += character;
+                });
+
+                // Sequentially render lines with a fade-in effect
+                rows.forEach((line, index) => {
+                    const lineElement = document.createElement('div');
+                    lineElement.textContent = line;
+                    lineElement.style.opacity = '0'; // Start invisible
+                    terminalBox.appendChild(lineElement);
+
+                    gsap.to(lineElement, {
+                        opacity: 1,
+                        duration: 0.5,
+                        delay: index * 0.3, // Stagger animation
+                        ease: 'power3.out',
+                    });
+                });
             } else {
-                console.log('Error creating secret message.');
-                notificationBox.textContent = 'An error occurred. Unable to create secret message.';
-                notificationBox.style.display = 'block';
-                notificationBox.style.color = 'red';
-                gsap.fromTo(notificationBox, { opacity: 0 }, { opacity: 1, duration: 0.8, ease: 'power3.out' });
+                console.log('Error retrieving coordinates.');
+                const notFoundMessage = document.createElement('div');
+                notFoundMessage.textContent = 'Error: Unable to generate secret message.';
+                notFoundMessage.style.opacity = '0'; // Start invisible
+                notFoundMessage.style.color = 'red';
+                terminalBox.appendChild(notFoundMessage);
+
+                gsap.to(notFoundMessage, {
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: 'power3.out',
+                });
             }
         } catch (error) {
-            console.error('Error creating secret message:', error);
+            console.error('Error fetching coordinates:', error);
 
-            // Handle unexpected errors
-            notificationBox.textContent = 'An error occurred. Please try again later.';
-            notificationBox.style.display = 'block';
-            notificationBox.style.color = 'red';
-            gsap.fromTo(notificationBox, { opacity: 0 }, { opacity: 1, duration: 0.8, ease: 'power3.out' });
+            const errorMessage = document.createElement('div');
+            errorMessage.textContent = 'An error occurred. Please try again later.';
+            errorMessage.style.color = 'red';
+            terminalBox.appendChild(errorMessage);
         }
     });
 
@@ -110,7 +142,7 @@ export default function renderPage2(container) {
     container.appendChild(heading);
     container.appendChild(inputField);
     container.appendChild(button);
-    container.appendChild(notificationBox);
+    container.appendChild(terminalBox);
 
     gsap.timeline()
         .to(heading, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })

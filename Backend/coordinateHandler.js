@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { v4 as uuidv4 } from 'uuid'; // Install this library with `npm install uuid`
 
 // Emulate __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -61,15 +62,19 @@ export function updateCoordinatesJson(input, coordinates) {
         currentData = {};
     }
 
+    // Generate a unique ID for this entry
+    const uniqueId = uuidv4();
+
     console.log('Updating pixelCoordinates.json at:', filePath);
     console.log('Current data before update:', currentData);
 
-    // Add or update the data for the input
-    currentData[input.toUpperCase()] = coordinates;
+    // Add or update the data with the unique ID
+    currentData[uniqueId] = { input: input.toUpperCase(), coordinates };
 
     try {
         fs.writeFileSync(filePath, JSON.stringify(currentData, null, 2));
         console.log('File updated successfully');
+        return uniqueId; // Return the unique ID for further use
     } catch (error) {
         console.error('Error writing to pixelCoordinates.json:', error.message);
         throw error;
