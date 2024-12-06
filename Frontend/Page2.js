@@ -88,34 +88,24 @@ export default function renderPage2(container) {
             terminalBox.textContent = '';
 
             if (response.ok) {
-                const { coordinates } = await response.json();
-                console.log('Coordinates retrieved:', coordinates);
+                // Access the 'key' field from the backend response
+                const { key } = await response.json();
+                console.log('Unique ID retrieved:', key);
 
-                // Convert coordinates to rendered text
-                const rows = Array(6).fill('');
-                coordinates.forEach(({ x, y, character }) => {
-                    while (rows[y].length < x) {
-                        rows[y] += ' '; // Fill spaces
-                    }
-                    rows[y] += character;
-                });
+                // Display the unique ID in the terminal
+                const uniqueIdMessage = document.createElement('div');
+                uniqueIdMessage.textContent = `Unique ID: ${key}`;
+                uniqueIdMessage.style.opacity = '0'; // Start invisible
+                uniqueIdMessage.style.color = '#0f0'; // Green text
+                terminalBox.appendChild(uniqueIdMessage);
 
-                // Sequentially render lines with a fade-in effect
-                rows.forEach((line, index) => {
-                    const lineElement = document.createElement('div');
-                    lineElement.textContent = line;
-                    lineElement.style.opacity = '0'; // Start invisible
-                    terminalBox.appendChild(lineElement);
-
-                    gsap.to(lineElement, {
-                        opacity: 1,
-                        duration: 0.5,
-                        delay: index * 0.3, // Stagger animation
-                        ease: 'power3.out',
-                    });
+                gsap.to(uniqueIdMessage, {
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: 'power3.out',
                 });
             } else {
-                console.log('Error retrieving coordinates.');
+                console.log('Error retrieving unique ID.');
                 const notFoundMessage = document.createElement('div');
                 notFoundMessage.textContent = 'Error: Unable to generate secret message.';
                 notFoundMessage.style.opacity = '0'; // Start invisible
@@ -129,7 +119,7 @@ export default function renderPage2(container) {
                 });
             }
         } catch (error) {
-            console.error('Error fetching coordinates:', error);
+            console.error('Error fetching unique ID:', error);
 
             const errorMessage = document.createElement('div');
             errorMessage.textContent = 'An error occurred. Please try again later.';
@@ -137,6 +127,8 @@ export default function renderPage2(container) {
             terminalBox.appendChild(errorMessage);
         }
     });
+
+
 
     // Append elements to the container
     container.appendChild(heading);

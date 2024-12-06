@@ -95,6 +95,9 @@ app.post('/generate-secret-message', (req, res) => {
         // Generate a unique key using SHA256
         const uniqueKey = generateHashKey(input);
 
+        // Log the unique key to the console
+        console.log(`Generated unique key: ${uniqueKey} for input: ${input}`);
+
         // Generate coordinates for the input string
         const coordinates = getCoordinatesForString(input);
 
