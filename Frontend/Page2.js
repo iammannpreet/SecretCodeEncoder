@@ -34,7 +34,7 @@ export default function renderPage2(container) {
     inputField.style.zIndex = '10';
     inputField.style.pointerEvents = 'auto';
 
-    // Create button
+    // Create Submit button
     const button = document.createElement('button');
     button.textContent = 'Submit';
     button.style.padding = '10px 20px';
@@ -51,6 +51,52 @@ export default function renderPage2(container) {
     button.style.zIndex = '10';
     button.style.pointerEvents = 'auto';
 
+
+
+    // Create clipboard container and button
+    const clipboardContainer = document.createElement('div');
+    clipboardContainer.style.marginTop = '20px';
+    clipboardContainer.style.display = 'flex';
+    clipboardContainer.style.justifyContent = 'flex-start';
+    clipboardContainer.style.gap = '10px';
+    clipboardContainer.style.opacity = '0'; // Initially hidden
+    clipboardContainer.style.pointerEvents = 'none'; // Prevent interaction until shown
+
+    const clipboardButton = document.createElement('button');
+    clipboardButton.textContent = 'Copy Unique ID';
+    clipboardButton.style.padding = '10px 20px';
+    clipboardButton.style.fontSize = '16px';
+    clipboardButton.style.border = '1px solid white';
+    clipboardButton.style.borderRadius = '4px';
+    clipboardButton.style.backgroundColor = '#0f0';
+    clipboardButton.style.color = '#000';
+    clipboardButton.style.cursor = 'not-allowed'; // Indicate the disabled state initially
+    clipboardButton.disabled = true; // Disabled by default
+
+    clipboardContainer.appendChild(clipboardButton);
+    container.appendChild(clipboardContainer);
+    // Enable the clipboard button when unique ID is set
+    function enableClipboardButton(uniqueId) {
+        clipboardButton.dataset.uniqueId = uniqueId;
+        clipboardButton.disabled = false;
+        clipboardButton.style.cursor = 'pointer'; // Enable cursor
+        clipboardContainer.style.pointerEvents = 'auto'; // Allow interaction
+    }
+
+    // Clipboard button click handler
+    clipboardButton.addEventListener('click', () => {
+        const uniqueId = clipboardButton.dataset.uniqueId;
+        if (uniqueId) {
+            navigator.clipboard
+                .writeText(uniqueId)
+                .then(() => {
+                    alert('Copied to clipboard!');
+                })
+                .catch((err) => {
+                    console.error('Failed to copy text:', err);
+                });
+        }
+    });
     // Create terminal-like output container
     const terminalBox = document.createElement('div');
     terminalBox.style.backgroundColor = '#000';
@@ -60,12 +106,26 @@ export default function renderPage2(container) {
     terminalBox.style.marginTop = '20px';
     terminalBox.style.borderRadius = '8px';
     terminalBox.style.border = '1px solid #333';
-    terminalBox.style.fontFamily = 'Copperplate';
-    terminalBox.style.minHeight = '200px';
+    terminalBox.style.minHeight = '50px';
+    terminalBox.style.fontSize = '32px';
     terminalBox.style.width = '100%';
     terminalBox.style.overflow = 'auto';
     terminalBox.style.whiteSpace = 'pre';
+    container.appendChild(terminalBox);
 
+    // Function to show terminal with animation
+    function showTerminal() {
+        if (terminalBox.style.display === 'none') {
+            terminalBox.style.display = 'block';
+            gsap.fromTo(
+                terminalBox,
+                { opacity: 0, scale: 0.9 },
+                { opacity: 1, scale: 1, duration: 0.5, ease: 'power3.out' }
+            );
+        }
+    }
+
+    // Submit button click event
     button.addEventListener('click', async () => {
         const inputText = inputField.value.trim();
 
@@ -75,7 +135,6 @@ export default function renderPage2(container) {
         }
 
         try {
-            // Make a POST request to the backend
             const response = await fetch('http://localhost:3000/generate-secret-message', {
                 method: 'POST',
                 headers: {
@@ -84,52 +143,34 @@ export default function renderPage2(container) {
                 body: JSON.stringify({ input: inputText }),
             });
 
-            // Clear the terminal box
-            terminalBox.textContent = '';
+            terminalBox.textContent = ''; // Clear terminal box
 
             if (response.ok) {
-                // Access the 'key' field from the backend response
                 const { key } = await response.json();
                 console.log('Unique ID retrieved:', key);
 
-                // Display the unique ID in the terminal
-                const uniqueIdMessage = document.createElement('div');
-                uniqueIdMessage.textContent = `Unique ID: ${key}`;
-                uniqueIdMessage.style.opacity = '0'; // Start invisible
-                uniqueIdMessage.style.color = '#0f0'; // Green text
-                terminalBox.appendChild(uniqueIdMessage);
+                terminalBox.textContent = `Unique ID: ${key}`;
+                showTerminal();
 
-                gsap.to(uniqueIdMessage, {
-                    opacity: 1,
+                enableClipboardButton(key); // Enable clipboard button
+
+                gsap.to(clipboardContainer, {
+                    opacity: 1, // Show clipboard container
                     duration: 0.5,
                     ease: 'power3.out',
                 });
             } else {
                 console.log('Error retrieving unique ID.');
-                const notFoundMessage = document.createElement('div');
-                notFoundMessage.textContent = 'Error: Unable to generate secret message.';
-                notFoundMessage.style.opacity = '0'; // Start invisible
-                notFoundMessage.style.color = 'red';
-                terminalBox.appendChild(notFoundMessage);
-
-                gsap.to(notFoundMessage, {
-                    opacity: 1,
-                    duration: 0.5,
-                    ease: 'power3.out',
-                });
+                terminalBox.textContent = 'Error: Unable to generate secret message.';
+                showTerminal();
             }
         } catch (error) {
             console.error('Error fetching unique ID:', error);
-
-            const errorMessage = document.createElement('div');
-            errorMessage.textContent = 'An error occurred. Please try again later.';
-            errorMessage.style.color = 'red';
-            terminalBox.appendChild(errorMessage);
+            terminalBox.textContent = 'An error occurred. Please try again later.';
+            terminalBox.style.color = 'red';
+            showTerminal();
         }
     });
-
-
-
     // Append elements to the container
     container.appendChild(heading);
     container.appendChild(inputField);
